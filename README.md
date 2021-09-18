@@ -1,2 +1,2 @@
-# comment-on-issue-test
-Test repo for Comment on Issue
+# comment-on-issue
+GitHub Action to comment on an Issue, if all the assignees on an Issue have also commented
