@@ -9,7 +9,7 @@ comment = ENV['COMMENT']
 issue_comment_payload_file = File.read(ENV['GITHUB_EVENT_PATH'])
 issue_comment_payload = JSON.parse(issue_comment_payload_file)
 
-issue_comment_payload.inspect
+puts issue_comment_payload.inspect
 
 # Initialize Octokit SDK
 gh = Octokit::Client.new(:access_token => ENV['GITHUB_TOKEN'])
