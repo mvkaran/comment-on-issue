@@ -1,4 +1,4 @@
 #!/bin/sh
 
 set -e
-sh -c "ruby ./action.rb $*"
+sh -c "ruby /action.rb $*"
