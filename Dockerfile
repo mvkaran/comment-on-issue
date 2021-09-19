@@ -1,17 +1,15 @@
 FROM ruby:3.0.2-alpine
 
-ENV RUBY_PACKAGES bash curl-dev ruby-dev build-base git ruby ruby-io-console ruby-bundler ruby-json ruby-rdoc
+# Copy entrypoint and the actual Action Ruby script
+COPY entrypoint.sh action.rb ./
 
 # Update and install all of the required packages.
 # At the end, remove the apk cache
 RUN apk update && \
     apk upgrade && \
-    apk add $RUBY_PACKAGES && \
+    apk add bash curl-dev ruby-dev build-base git ruby ruby-io-console ruby-bundler ruby-json ruby-rdoc && \
+    chmod +x ./entrypoint.sh && \
+    gem install octokit json && \ 
     rm -rf /var/cache/apk/*
 
-COPY entrypoint.sh /entrypoint.sh
-COPY action.rb /action.rb
-
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
