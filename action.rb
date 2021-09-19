@@ -27,7 +27,7 @@ end
 
 comments = gh.issue_comments(repo, issue["number"])
 
-unless comments.any? { |c| c[:body] == comment }
+if comments.any? { |c| c[:body] == comment }
     puts "Comment already exists"
     exit 0
 end
