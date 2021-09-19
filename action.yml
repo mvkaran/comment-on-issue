@@ -17,4 +17,4 @@ inputs:
     default: 'All assignees on this Issue have commented!'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'busybox:latest'
