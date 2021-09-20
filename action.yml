@@ -4,17 +4,6 @@ description: 'Comments on an Issue if all assignees on an Issue have also commen
 branding:
   icon: 'sliders'
   color: 'green'
-inputs:
-  token:
-    description: 'Your GitHub Token on behalf of which the Action will be acting. Usually GITHUB_TOKEN.'
-    required: true
-  label:
-    description: 'The label based on which an Issue has to be searched for'
-    required: true
-  commentBody:
-    description: 'What comment should be added to the Issue once everyone on the assignees have commented'
-    required: false
-    default: 'All assignees on this Issue have commented!'
 runs:
   using: 'docker'
   image: 'ghcr.io/mvkaran/comment-on-issue-test:latest'

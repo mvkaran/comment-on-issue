@@ -1,7 +1,7 @@
-name: "Build new image for Action"
+name: "Build new release image for Action"
 on:
-  - push
-  - pull_request
+  release:
+    types: [published]
 
 jobs:
   build-and-push:
@@ -20,9 +20,14 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Get release tag
+        uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: |
-            ghcr.io/mvkaran/comment-on-issue-test:latest   
+            ghcr.io/mvkaran/comment-on-issue-test:latest
+            ghcr.io/mvkaran/comment-on-issue-test:${{ steps.tagName.outputs.tag }}
