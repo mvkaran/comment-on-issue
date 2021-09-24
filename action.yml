@@ -1,0 +1,9 @@
+name: 'Comment on Issue'
+author: 'MV Karan'
+description: 'Comments on an Issue if all assignees on an Issue have also commented'
+branding:
+  icon: 'sliders'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'ghcr.io/mvkaran/comment-on-issue-test:latest'
