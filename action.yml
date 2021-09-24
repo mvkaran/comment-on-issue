@@ -6,4 +6,4 @@ branding:
   color: 'green'
 runs:
   using: 'docker'
-  image: 'ghcr.io/mvkaran/comment-on-issue:latest'
+  image: 'docker://ghcr.io/mvkaran/comment-on-issue:latest'
